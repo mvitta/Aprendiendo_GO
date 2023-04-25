@@ -82,7 +82,7 @@ func variadicFunctions(numbers ...int) {
 }
 
 func strings() {
-	variable := "Hola Mundo Bello s s je je je"
+	variable := "Hello Word Bello s s je je je"
 	var count int
 	fmt.Println(variable)
 	for _, value := range variable {
@@ -91,28 +91,28 @@ func strings() {
 			count++
 		}
 	}
-	fmt.Printf("total de espacios de la franse, %q: %v", variable, count)
+	fmt.Printf("total spaces of the phrase, %q: %v", variable, count)
 }
 
 func request_api() {
 
 }
 
-func diferenciaEntre_Array_Slice() {
+func Array_Slice() {
 	//arrays
 	var a [5]int
 	array := [10]int{}
 
 	//slices
 	l := []string{}
-	lista := []string{"Jean"}
-	lista2 := make([]int, 3)
+	list := []string{"Jean"}
+	list2 := make([]int, 3)
 
-	fmt.Println("estos es un array", array, a)
-	lista3 := append(l, "Maikol", "Hola", "Mundo")
-	fmt.Println(lista)
-	fmt.Println(lista2)
-	fmt.Println(lista3)
+	fmt.Println("this is an array", array, a)
+	list3 := append(l, "Michael", "Hello", "Word")
+	fmt.Println(list)
+	fmt.Println(list2)
+	fmt.Println(list3)
 	fmt.Println(l)
 }
 
@@ -125,24 +125,24 @@ func f1() func() int {
 }
 
 func matrices() {
-	matriz := [3][3]int{
+	matrix := [3][3]int{
 		{1, 2, 3},
 		{4, 5, 6},
 		{7, 8, 9},
 	}
-	//remplazar pares con cero
-	for row := 0; row < len(matriz); row++ {
-		for colum := 0; colum < len(matriz[row]); colum++ {
-			var isPar bool = matriz[row][colum]%2 == 0
+	//replace even number with zero
+	for row := 0; row < len(matrix); row++ {
+		for colum := 0; colum < len(matrix[row]); colum++ {
+			var isPar bool = matrix[row][colum]%2 == 0
 			if isPar {
-				matriz[row][colum] = 0
+				matrix[row][colum] = 0
 			}
 		}
 	}
 
-	//sumar filas
+	//add columns
 	var sum int
-	for _, value := range matriz {
+	for _, value := range matrix {
 		fmt.Print(value)
 		sum = 0
 		for i := 0; i < len(value); i++ {
@@ -151,12 +151,12 @@ func matrices() {
 		fmt.Print("-> ", sum, "\n")
 	}
 
-	//sumar columnas
+	//add columns
 	var sumCol int
-	for i := 0; i < len(matriz); i++ {
+	for i := 0; i < len(matrix); i++ {
 		sumCol = 0
-		for j := 0; j < len(matriz[i]); j++ {
-			sumCol += matriz[j][i]
+		for j := 0; j < len(matrix[i]); j++ {
+			sumCol += matrix[j][i]
 		}
 		fmt.Print(sumCol, "  ")
 	}
