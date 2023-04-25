@@ -82,7 +82,7 @@ func variadicFunctions(numbers ...int) {
 }
 
 func strings() {
-	variable := "Hello Word Bello s s je je je"
+	variable := "Hello beautiful Word s s je je je"
 	var count int
 	fmt.Println(variable)
 	for _, value := range variable {
