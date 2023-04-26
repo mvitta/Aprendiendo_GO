@@ -178,10 +178,23 @@ func pointers() {
 	fmt.Println(array)
 }
 
-func pointers2() {
-
+func pointers2() (int, int) {
+	var pointer *string
+	myArray := []string{"a", "b", "c", "b", "z"}
+	alternateIndex := len(myArray) - 1
+	for i := 0; i < len(myArray); i++ {
+		pointer = &myArray[alternateIndex]
+		fmt.Println(myArray[i], *pointer)
+		if myArray[i] == *pointer {
+			return i, alternateIndex
+		}
+		alternateIndex--
+	}
+	return -1, -1
 }
 
 func main() {
+	i1, i2 := pointers2()
+	fmt.Println("index one", i1, "index two", i2)
 
 }
