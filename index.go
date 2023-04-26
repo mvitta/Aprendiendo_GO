@@ -17,7 +17,7 @@ func slices() {
 	for j := 0; j < len(elementSum); j++ {
 		sum += elementSum[j]
 	}
-	fmt.Println("suma:", sum)
+	fmt.Println("sum:", sum)
 	fmt.Println(list)
 
 	t := []string{"g", "h", "i"}
@@ -160,6 +160,26 @@ func matrices() {
 		}
 		fmt.Print(sumCol, "  ")
 	}
+}
+
+func pointers() {
+	var pointer *int
+	array := [3]int{
+		10, 20, 30,
+	}
+	indexRandom := rand.Intn(3)
+	fmt.Println(indexRandom)
+	for i := 0; i < len(array); i++ {
+		fmt.Println("value:", array[i], "memory:", &array[i], ".")
+	}
+	pointer = &array[indexRandom]
+	fmt.Println(*pointer)
+	*pointer = 300
+	fmt.Println(array)
+}
+
+func pointers2() {
+
 }
 
 func main() {
