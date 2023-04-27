@@ -205,7 +205,17 @@ func average(arr *[6]float64, sum float64) float64 {
 	return 0
 }
 
+func deleteElementSlice() {
+	slice := []int{1, 2, 3, 4}
+	fmt.Println(slice)
+	slice = append(slice[:2], slice[3:]...)
+	fmt.Println(slice)
+
+}
+
 func main() {
 	// newArray := [...]float64{1, 2, 3, 4, 5, 6}
 	// average(&newArray, 0.0)
+
+	deleteElementSlice()
 }
