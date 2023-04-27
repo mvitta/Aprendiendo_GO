@@ -178,6 +178,8 @@ func pointers() {
 	fmt.Println(array)
 }
 
+// not optimal, start traversing from the ends.
+// just to understand how pointers work
 func pointers2() (int, int) {
 	var pointer *string
 	myArray := []string{"a", "b", "c", "b", "z"}
@@ -193,8 +195,17 @@ func pointers2() (int, int) {
 	return -1, -1
 }
 
-func main() {
-	i1, i2 := pointers2()
-	fmt.Println("index one", i1, "index two", i2)
+func average(arr *[6]float64, sum float64) float64 {
+	var average float64
+	for _, value := range *arr {
+		sum += value
+	}
+	average = sum / float64(len(arr))
+	fmt.Println(average)
+	return 0
+}
 
+func main() {
+	// newArray := [...]float64{1, 2, 3, 4, 5, 6}
+	// average(&newArray, 0.0)
 }
