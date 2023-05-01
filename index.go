@@ -210,12 +210,25 @@ func deleteElementSlice() {
 	fmt.Println(slice)
 	slice = append(slice[:2], slice[3:]...)
 	fmt.Println(slice)
+}
+
+type Person struct {
+	name string
+	age  int
+}
+
+func (p Person) structs(number int) {
+	persona := Person{}
+	fmt.Println(p)
+	fmt.Println(persona)
+	fmt.Println(number)
 
 }
 
 func main() {
-	// newArray := [...]float64{1, 2, 3, 4, 5, 6}
-	// average(&newArray, 0.0)
+	p := Person{name: "Mike", age: 32}
+	p.structs(200)
 
-	deleteElementSlice()
+	Person.structs(Person{name: "jean", age: 40}, 300)
+
 }
