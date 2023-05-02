@@ -1,8 +1,10 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"math/rand"
+	"os"
 )
 
 func slices() {
@@ -225,10 +227,56 @@ func (p Person) structs(number int) {
 
 }
 
+func tojsonStruct() {
+	// yo can create a type that accepts multiple types
+	type ColorGroups struct {
+		ID     int
+		Name   string
+		Colors []string
+	}
+	group := ColorGroups{
+		ID:     1,
+		Name:   "Red",
+		Colors: []string{"Crimson", "Red", "Ruby", "Maroon"},
+	}
+	//here... type ColorGroups
+	fmt.Println("Type ColorGroups", group)
+
+	b, err := json.Marshal(group)
+	if err != nil {
+		fmt.Println("error", err)
+	}
+	//here it is converted to json
+	os.Stdout.Write(b)
+	//___________________________________________________________
+	getGroup := ColorGroups{}
+	//here the json will be converted to type ColorGroups
+	err1 := json.Unmarshal(b, &getGroup)
+	if err != nil {
+		fmt.Println("Error", err1)
+	}
+	fmt.Println()
+
+	fmt.Printf("%+v", getGroup)
+
+}
+
+func tojsonMap() {
+	// all values must be of the same type
+	dataMap := map[string]string{
+		"firstName": "Michael",
+		"lastName":  "Vitta",
+		"Cedula":    "1234567890",
+	}
+
+	b, err := json.Marshal(dataMap)
+	if err != nil {
+		fmt.Println("error", err)
+	}
+	fmt.Printf("%s", b)
+}
+
 func main() {
-	p := Person{name: "Mike", age: 32}
-	p.structs(200)
 
-	Person.structs(Person{name: "jean", age: 40}, 300)
-
+	tojsonStruct()
 }
