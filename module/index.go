@@ -2,33 +2,42 @@ package module
 
 import (
 	"fmt"
+	"sort"
 )
 
 // Car is available in this package, doesn't require import
 
+// second way -> sort.Sort() ...
+type ByYear []Car
+
+func (y ByYear) Len() int {
+	return len(y)
+}
+
+func (y ByYear) Swap(current, next int) { y[current], y[next] = y[next], y[current] }
+
+func (y ByYear) Less(current, next int) bool {
+	return y[current].Year > y[next].Year
+}
+
 func Index() {
 	fmt.Println("Struct and methods")
-	var cars []Car
-	fmt.Println(cars)
+	cars := Car{}.GenerateCars()
 
-	cars = append(cars, Car{
-		Model: "Renaul",
-		Brand: "Logan",
-		Year:  2022,
-	}, Car{
-		Model: "Toyota",
-		Brand: "Sahara",
-		Year:  2023,
-	}, Car{
-		Model: "3 Sedán",
-		Brand: "Mazda",
-		Year:  2018,
+	Show(cars)
+
+	//first form
+	sort.Slice(cars, func(i, j int) bool {
+		return cars[i].Year < cars[j].Year
 	})
 
-	fmt.Println(cars)
-	for _, value := range cars {
-		car := value.GetCar()
-		itsNewAge := value.ItsNewAge()
-		fmt.Println(car, itsNewAge)
-	}
+	// ... second way -> sort.Sort()
+
+	sort.Sort(ByYear(cars))
+	fmt.Println()
+	Show(cars)
 }
+
+// func (p Person) String() string {
+// 	return fmt.Sprintf("%s: %d", p.Name, p.Age)
+// }
