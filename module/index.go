@@ -25,7 +25,7 @@ func Index() {
 	cars := Car{}.GenerateCars()
 
 	Show(cars)
-
+	cars[3].SetCar("RX-7", "Mazda", 3000)
 	//first form
 	sort.Slice(cars, func(i, j int) bool {
 		return cars[i].Year < cars[j].Year
@@ -36,6 +36,7 @@ func Index() {
 	sort.Sort(ByYear(cars))
 	fmt.Println()
 	Show(cars)
+
 }
 
 // func (p Person) String() string {

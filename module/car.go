@@ -11,6 +11,12 @@ type Car struct {
 	Brand string `json:"Brand"`
 }
 
+func (c *Car) SetCar(model, brand string, year int) {
+	c.Model = model
+	c.Brand = brand
+	c.Year = year
+}
+
 func (Car) GenerateCars() []Car {
 
 	var cars []Car
